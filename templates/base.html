@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PES University Alumni</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="left">PES University | Alumni</div>
+        <div class="center">
+            <a href="{{ url_for('events') }}">Events</a>
+            <a href="{{ url_for('alumni_directory') }}">Alumni Directory</a>
+            <a href="#">Programs and Perks</a>
+            <a href="#">Communities</a>
+        </div>
+        <div class="right">
+            {% if 'user_id' in session %}
+                <span>Welcome, {{ session['user_name'] }}</span>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Navigation Links for New Pages -->
+        <nav class="page-links">
+            <a href="{{ url_for('users_with_same_job', user_id=session.get('user_id', 0)) }}" class="nav-link">Users with Similar Job Roles</a>
+            <a href="{{ url_for('messages_with_users') }}" class="nav-link">Messages Between Users</a>
+            <a href="{{ url_for('message_count') }}" class="nav-link">Message Count per User</a>
+        </nav>
+    
+        <!-- Block for Page-Specific Content -->
+        {% block content %}{% endblock %}
+    </div>
+
+
+    <footer>
+        <p>&copy; 2024 PES University | Alumni</p>
+    </footer>
+</body>
+</html>

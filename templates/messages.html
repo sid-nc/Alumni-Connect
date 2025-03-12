@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Your Conversations</h2>
+
+<div class="conversations">
+    {% if conversations %}
+        <ul>
+            {% for conversation in conversations %}
+                <li>
+                    <a href="{{ url_for('conversation', user_id=conversation['id']) }}">
+                        {{ conversation['name'] }}
+                    </a>
+                    {% if conversation['unread_count'] > 0 %}
+                        <span class="unread-count">{{ conversation['unread_count'] }} unread</span>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No conversations found.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,195 @@
+/* Simple CSS layout */
+body {
+    font-family: Arial, sans-serif;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 1em;
+    color: white;
+}
+.navbar .center a, .navbar .right a {
+    margin: 0 0.5em;
+    color: white;
+    text-decoration: none;
+    z-index: 10; /* Brings links to the front */
+    position: relative; /* Makes sure links aren’t overlapped */
+}
+
+.home-content {
+    text-align: center;
+    background-image: url('/static/campus.jpg');
+    background-repeat: no-repeat;  /* Prevents the image from repeating */
+    background-size: cover;        /* Scales the image to cover the entire area */
+    background-position: center;   /* Centers the image */
+    color: white;
+    padding: 100px;
+}
+
+/* Styling for the navigation links */
+.page-links {
+    display: flex;                 /* Use flexbox to display the links in a row */
+    justify-content: center;       /* Center the links horizontally */
+    gap: 20px;                     /* Add space between the links */
+    margin: 20px 0;                /* Add some margin around the nav links */
+}
+
+.nav-link {
+    text-decoration: none;         /* Remove underline from links */
+    font-size: 16px;                /* Set font size */
+    padding: 10px 20px;            /* Add padding around the text */
+    border-radius: 5px;            /* Round the corners */
+    color: #007bff;                /* Set link text color */
+    background-color: #f8f9fa;     /* Set background color */
+    border: 1px solid #ddd;        /* Add a border around the links */
+    transition: all 0.3s ease;     /* Add smooth transition on hover */
+}
+
+.nav-link:hover {
+    background-color: #007bff;     /* Change background color on hover */
+    color: white;                  /* Change text color on hover */
+    border-color: #007bff;         /* Change border color on hover */
+}
+
+
+.form-container {
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 2em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1em;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 0.75em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+.events-container {
+    max-width: 800px;
+    margin: 2em auto;
+    padding: 2em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.events-container h2 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.events-list {
+    list-style: none;
+    padding: 0;
+}
+
+.event-item {
+    padding: 1em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+.event-item h3 {
+    margin: 0;
+    color: #333;
+}
+
+.event-item p {
+    margin: 0.5em 0;
+}
+
+.event-item strong {
+    color: #555;
+}
+
+.messages {
+    border: 1px solid #ddd;
+    padding: 1em;
+    max-width: 600px;
+    margin: 1em auto;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    max-height: 300px;
+}
+
+.message {
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border-radius: 8px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+
+.sent {
+    background-color: #d1ffd6;
+    margin-left: auto;
+    text-align: right;
+}
+
+.received {
+    background-color: #d1e0ff;
+    margin-right: auto;
+    text-align: left;
+}
+
+.timestamp {
+    display: block;
+    font-size: 0.8em;
+    color: #555;
+    margin-top: 0.3em;
+}
+
+
+.alert {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}

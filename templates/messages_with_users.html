@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Messages Between Users</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Content</th>
+            <th>Sender</th>
+            <th>Receiver</th>
+            <th>Timestamp</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for message in messages %}
+        <tr>
+            <td>{{ message.content }}</td>
+            <td>{{ message.sender_name }}</td>
+            <td>{{ message.receiver_name }}</td>
+            <td>{{ message.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Message Count per User</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Messages Sent</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for count in message_counts %}
+        <tr>
+            <td>{{ count.name }}</td>
+            <td>{{ count.message_count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

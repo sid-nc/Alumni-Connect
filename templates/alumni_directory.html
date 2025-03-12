@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Alumni Directory</h2>
+<form method="post">
+    <input type="text" name="search" placeholder="Search Alumni by Name">
+    <button type="submit">Search</button>
+</form>
+
+{% if results %}
+    <ul>
+        {% for result in results %}
+            <li>
+                {{ result['name'] }} - {{ result['current_job'] }} at {{ result['company'] }}
+                <form action="{{ url_for('start_conversation', user_id=result['id']) }}" method="post" style="display:inline;">
+                    <button type="submit">Message</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No alumni found.</p>
+{% endif %}
+{% endblock %}

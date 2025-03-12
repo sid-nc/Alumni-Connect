@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Conversation with {{ recipient_name }}</h2>
+
+{% for message in messages %}
+    <div class="message">
+        <p>{{ message.content }}</p>
+        <form action="{{ url_for('delete_message', message_id=message['id']) }}" method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+    </div>
+{% endfor %}
+
+
+<div class="messages">
+    {% for message in messages %}
+        <div class="message {{ 'sent' if message['sender_id'] == session['user_id'] else 'received' }}">
+            <p>{{ message['content'] }}</p>
+            <span class="timestamp">{{ message['timestamp'] }}</span>
+        </div>
+    {% endfor %}
+</div>
+
+<form action="{{ url_for('send_message', receiver_id=recipient_id) }}" method="post">
+    <textarea name="content" placeholder="Type your message here" required></textarea>
+    <button type="submit">Send</button>
+</form>
+{% endblock %}

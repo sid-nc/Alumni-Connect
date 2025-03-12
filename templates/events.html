@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="events-container">
+    <h2>Upcoming Events</h2>
+    {% if events %}
+        <ul class="events-list">
+            {% for event in events %}
+                <li class="event-item">
+                    <h3>{{ event['title'] }}</h3>
+                    <p>{{ event['description'] }}</p>
+                    <p><strong>Date:</strong> {{ event['date'] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No upcoming events at the moment.</p>
+    {% endif %}
+</div>
+{% endblock %}
